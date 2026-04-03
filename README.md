@@ -1,5 +1,8 @@
 # Duet Desktop Weather
 
+![Show Mode](./ShowMode.png)
+![Settings Mode](./SettingsMode.png)
+
 一个基于 Tauri + Preact + TypeScript 实现的 Windows 桌面天气挂件。
 
 它的目标不是做一个传统窗口应用，而是尽量接近桌面小组件的使用体验：透明背景、无边框、任务栏隐藏、托盘驻留、支持固定在桌面底层，并且能够根据内容动态调整窗口尺寸，减少对桌面鼠标操作的干扰。
@@ -178,8 +181,3 @@ npm run desktop:build:installer
 
 当前版本主要面向 Windows 使用场景，项目配置与交互也以 Windows 桌面挂件体验为主。
 
-如果你准备把这个项目放到 GitHub，建议额外处理以下内容：
-
-- 不要提交真实的 app-config.json Key
-- 可以新增一个 app-config.example.json 作为公开模板
-- 如果需要展示效果，建议补充几张桌面截图到仓库首页
