@@ -1,0 +1,400 @@
+.widget-shell {
+  --widget-opacity: 0.26;
+  --font-size: 14px;
+  --font-color: #f4fbff;
+  --forecast-item-width: 112px;
+  --card-border: rgba(255, 255, 255, 0.35);
+
+  position: relative;
+  width: fit-content;
+  min-height: 0;
+  padding: 1px;
+  color: var(--font-color);
+  font-family: 'Nunito', 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  font-size: var(--font-size);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.48);
+  overflow: visible;
+}
+
+.pinned-shell {
+  padding: 0;
+}
+
+.widget {
+  position: relative;
+  width: fit-content;
+  min-width: 0;
+  max-width: none;
+  background: rgba(16, 22, 30, var(--widget-opacity));
+  border: 1px solid var(--card-border);
+  border-radius: 13px;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.26);
+  backdrop-filter: blur(13px);
+  -webkit-backdrop-filter: blur(13px);
+  padding: 0.62em;
+}
+
+.widget.pinned {
+  background: rgba(16, 22, 30, var(--widget-opacity));
+  border: 0;
+  box-shadow: none;
+}
+
+.icon-btn {
+  width: 1.9em;
+  height: 1.9em;
+  border: 0;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.18);
+  color: var(--font-color);
+}
+
+.pin-btn {
+  position: absolute;
+  right: 0.45em;
+  /* top: 0.45em; */
+  z-index: 5;
+}
+
+.pin-btn.outside {
+  right: -2.25em;
+  top: 0.2em;
+}
+
+.pin-btn.inside-right {
+  right: 0.45em;
+  left: auto;
+  top: 0.45em;
+}
+
+.drag-bar {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45em;
+  margin-bottom: 0.55em;
+  padding: 0.22em 0.6em;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.15);
+  cursor: move;
+  user-select: none;
+  width: 90%;
+}
+
+.widget-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.6em;
+  white-space: nowrap;
+}
+
+.widget-header h1 {
+  margin: 0;
+  font-size: 1.1em;
+}
+
+.subtitle {
+  margin: 0.12em 0 0;
+  opacity: 0.88;
+  font-size: 0.86em;
+}
+
+.config-tip-text {
+  color: #9ee7ff;
+}
+
+.open-settings-btn,
+.tab,
+.remove-btn,
+.cascade-filter button,
+.close-btn {
+  border: 0;
+  border-radius: 0.6em;
+  padding: 0.38em 0.64em;
+  background: rgba(255, 255, 255, 0.16);
+  color: var(--font-color);
+  cursor: pointer;
+}
+
+.toolbar {
+  margin-top: 0.6em;
+  display: grid;
+  gap: 0.55em;
+}
+
+.range-tabs {
+  display: inline-flex;
+  width: fit-content;
+  background: rgba(255, 255, 255, 0.14);
+  border-radius: 999px;
+  padding: 0.2em;
+  gap: 0.25em;
+}
+
+.tab.active {
+  background: rgba(126, 200, 255, 0.92);
+  color: #0b1f2a;
+  text-shadow: none;
+}
+
+.cascade-filter {
+  display: grid;
+  gap: 0.35em;
+}
+
+.city-search-row {
+  position: relative;
+}
+
+.sync-tip {
+  margin-top: 0.32em;
+  font-size: 0.82em;
+  opacity: 0.88;
+}
+
+.sync-tip.syncing {
+  color: #ffd27a;
+}
+
+.sync-tip.done {
+  color: #98ffcc;
+}
+
+.city-search-input {
+  width: 100%;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 0.55em;
+  background: rgba(14, 18, 26, 0.84);
+  color: #ffffff;
+  padding: 0.34em 0.52em;
+}
+
+.city-options {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: calc(100% + 0.24em);
+  z-index: 10;
+  display: grid;
+  gap: 0.25em;
+  max-height: 11em;
+  overflow-y: auto;
+  background: rgba(14, 18, 26, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 0.55em;
+  padding: 0.26em;
+}
+
+.city-option {
+  border: 0;
+  border-radius: 0.5em;
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  text-align: left;
+  padding: 0.36em 0.46em;
+}
+
+.city-option.muted {
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+.cascade-filter input,
+.cascade-filter select,
+.settings-dialog input,
+.settings-dialog select {
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 0.55em;
+  background: rgba(14, 18, 26, 0.84);
+  color: #ffffff;
+  padding: 0.34em 0.52em;
+}
+
+.cascade-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr auto;
+  gap: 0.35em;
+}
+
+.error,
+.loading {
+  margin-top: 0.5em;
+  border-radius: 0.6em;
+  background: rgba(255, 255, 255, 0.14);
+  padding: 0.42em 0.58em;
+}
+
+.city-list {
+  margin-top: 0.55em;
+  display: grid;
+  gap: 0.5em;
+  width: fit-content;
+}
+
+.city-list.row {
+  display: flex;
+  flex-direction: row;
+}
+
+.city-list.column {
+  display: flex;
+  flex-direction: column;
+}
+
+.city-list.overflow {
+  max-height: calc(100vh - 1.4em);
+  overflow-y: auto;
+}
+
+.city-card {
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  border-radius: 0.8em;
+  padding: 0.48em;
+}
+
+.city-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.4em;
+}
+
+.city-actions {
+  display: inline-flex;
+  gap: 0.28em;
+}
+
+.region-picker {
+  margin-top: 0.42em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.32em;
+}
+
+.region-picker select {
+  min-width: 8em;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 0.55em;
+  background: rgba(14, 18, 26, 0.84);
+  color: #ffffff;
+  padding: 0.28em 0.48em;
+}
+
+.city-card h2 {
+  margin: 0;
+  font-size: 0.98em;
+  font-weight: 700;
+}
+
+.icon-delete {
+  width: 1.6em;
+  height: 1.6em;
+  padding: 0;
+  font-size: 0.88em;
+  border-radius: 999px;
+}
+
+.forecast-row {
+  margin-top: 0.4em;
+  display: flex;
+  gap: 0.34em;
+  width: max-content;
+}
+
+.forecast-row.column {
+  display: grid;
+  width: fit-content;
+}
+
+.forecast-item {
+  min-width: var(--forecast-item-width);
+  display: grid;
+  justify-items: center;
+  gap: 0.16em;
+  background: rgba(255, 255, 255, 0.18);
+  border-radius: 0.64em;
+  padding: 0.42em;
+}
+
+.date,
+.label,
+.temp {
+  font-size: 0.84em;
+}
+
+.emoji {
+  font-size: 1.5em;
+}
+
+.meta {
+  display: grid;
+  justify-items: center;
+}
+
+.settings-dialog {
+  position: fixed;
+  width: 22em;
+  border-radius: 0.8em;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  background: rgba(8, 11, 18, 0.88);
+  box-shadow: 0 16px 34px rgba(0, 0, 0, 0.36);
+  z-index: 20;
+}
+
+.settings-dialog-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: move;
+  user-select: none;
+  padding: 0.5em 0.62em;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.settings-dialog-body {
+  display: grid;
+  gap: 0.5em;
+  padding: 0.6em;
+}
+
+.settings-dialog label {
+  display: grid;
+  gap: 0.22em;
+  font-size: 0.9em;
+}
+
+.config-actions {
+  display: inline-flex;
+  gap: 0.4em;
+}
+
+.hidden-file-input {
+  display: none;
+}
+
+.close-btn {
+  width: 1.7em;
+  height: 1.7em;
+  padding: 0;
+  border-radius: 999px;
+}
+
+* {
+  scrollbar-width: none;
+}
+
+*::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+
+@media (max-width: 860px) {
+  .cascade-row {
+    grid-template-columns: 1fr;
+  }
+}
